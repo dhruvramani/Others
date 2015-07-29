@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Dancing Letter Animation</title>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+		<style>
+		body
+		{
+			font-size: 3em;
+			text-align: center;
+			background-color: #272822;
+			font-family: "Helvetica Neue";
+			font-weight: lighter;
+		}
+		span
+		{
+			top: 75px;
+			position: relative;
+			cursor: pointer;
+		}
+		</style>
+		<script>
+		function func (id) 
+		{
+			var node=document.getElementById(id);	
+			
+			span=document.createElement("SPAN"); //Just copying the elements CSS.
+			span.innerHTML=node.innerHTML;
+			span.style.position="absolute";
+			span.style.color=node.style.color;				
+			span.style.fontSize=node.style.fontSize;
+
+			span.className="float";
+
+			document.getElementsByTagName('body')[0].appendChild(span); //Appends the newly created to the body
+
+			$(".float").each(function()
+			{
+				$(this).animate({"top":(100*Math.random())+"%", "left":(100*Math.random())+"%"},1000);
+			}); //Animates all the elements created.
+
+			
+			$(".float").bind("mouseover",function()
+			{
+				$(this).css("display","none"); 
+			}); //Hides the newly created element when mouseover
+		}
+		
+		</script>
+	</head>
+	
+	<body>
+		<br><br>		
+		<br><br>
+		
+		<span onClick="func('G');" id="G" style="color:#156AEA">G</span>
+		<span onClick="func('o1');" id="o1" style="color:#D8432E">i</span>
+		<span onClick="func('o2');" id="o2" style="color:#FFB201">t</span>
+		<span onClick="func('g');" id="g" style="color:#156AEA">h</span>
+		<span onClick="func('l');" id="l" style="color:#009956">u</span>
+		<span onClick="func('b');" id="b" style="color:#D8432E">b</span>
+
+	</body>
+</html>		
