@@ -1,4 +1,17 @@
-//Code not tested yet
+/*
+  Prints Graph Of letters - Code not tested yet
+  eg. Input : MAIL
+  Output :
+  
+     ....     ....           ....       ....   ....
+    .    .   .    .         .    .      .  .   .  .
+   .      ...      .       .      .     .  .   .  .
+  .                 .     .        .    .  .   .   ...
+ .                   .....          .....  .....     . 
+ 
+ *Output maynot be as per the scale*
+
+*/
 
 #include <iostream>
 #include <conio>
@@ -20,9 +33,9 @@ int main(){
 	int currX=20,currY=10;
 	gets(n);
 	strcpy(n,tolower(n));
-	for(int i=0;i<strlen(n);n++) 
+	for(int i=0;n[i];n++) 
 	{
-		int index=int(a[i]-'a');
+		int index=int(n[i]-'a');
 		for(int j=0;j<a[index].length;j++)
 		{	
 			int count=0;
