@@ -10,7 +10,6 @@
  .                   .....          .....  .....     . 
  
  *Output maynot be as per the scale*
-
 */
 
 #include <iostream>
