@@ -39,8 +39,8 @@ void main(){
 		for(int j=0;j<sizeof(a[index])/sizeof(a[index][0]);j++)
 		{	
 			int count=0;
-			while(1){
-				
+			while(count<=a[index][j].size)
+			{
 				if(a[index][j].x=='+')
 					currX++;
 				else if(a[index][j].x=='-')
@@ -50,9 +50,7 @@ void main(){
 					currY++;
 				else if(a[index][j].y=='-')
 					currY--;
-				
-				if(count==a[index][j].size)
-					break;
+
 				count++;
 				gotoxy(currX,currY);
 				cout<<'.';
