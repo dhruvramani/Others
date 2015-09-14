@@ -1,5 +1,5 @@
 /*
-  Prints Graph Of letters - Code not tested yet
+  Prints Graph Of letters - Edited for Borland C++
   eg. Input : MAIL
   Output :
   
@@ -14,31 +14,32 @@
 
 #include <iostream>
 #include <conio>
+#include <stdio>
 
 struct foo{
 	char x,y;
 	int size;
 };
 
-int main(){  
-    //TODO
-	foo a[24][7]=
+void main(){  
+    //TODO - Complete for all the letters
+	foo a[24][10]=
 	{
-		{{'+','-',20},{'+','`',10},{'+','+',20}}, //A
-		{{'`',+'-',20},{'+','`',10},{'`','+',5},{'-','`',8},{'`','+',2},{'+','`',8},{'`','+',4}}, //B
+		{{'+','-',20},{'+','`',10},{'+','+',20}},                                                 //A
+		{{'`','-',20},{'+','`',10},{'`','+',10},{'-','`',8},{'`','+',2},{'+','`',8},{'`','+',8}}, //B
+		{{'`','-',20},{'+','`',10},{'`','+',5},{'-','`',8},{'`','+',10},{'+','`',8},{'`','+',5}}, //C
 	};
 
-	string n;
+	char n[20];
 	int currX=20,currY=10;
 	gets(n);
-	strcpy(n,tolower(n));
-	for(int i=0;n[i];n++) 
+	for(int i=0;i<strlen(n);i++) 
 	{
-		int index=int(n[i]-'a');
-		for(int j=0;j<a[index].length;j++)
+		int index=int(tolower(a[i])-'a');
+		for(int j=0;j<sizeof(a[index])/sizeof(a[index][0]);j++)
 		{	
 			int count=0;
-			while(count!=a[index][j].size){
+			while(1){
 				
 				if(a[index][j].x=='+')
 					currX++;
@@ -49,7 +50,9 @@ int main(){
 					currY++;
 				else if(a[index][j].y=='-')
 					currY--;
-					
+				
+				if(count==a[index][j].size)
+					break;
 				count++;
 				gotoxy(currX,currY);
 				cout<<'.';
@@ -57,4 +60,5 @@ int main(){
 		}
 		cout<"....";
 	}
+	getch();
 }
